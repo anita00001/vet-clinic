@@ -87,7 +87,6 @@ SELECT * FROM animals;
 COMMIT;
 
 --------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------
 
 -- How many animals are there?
 select count(*) as number_of_animals from animals;
@@ -112,3 +111,66 @@ group by species;
 select species, avg(escape_attempts) as average_escape_attempts from animals
 where date_of_birth between '1990-01-01' and '2000-12-31'
 group by species;
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+
+-- What animals belong to Melody Pond?
+SELECT owners.full_name AS owner, animals.name AS animal
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
+
+-- List of all animals that are pokemon (their type is Pokemon).
+SELECT animals.name AS animal_name, species.name AS species_name
+FROM animals
+JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
+
+-- List all owners and their animals, remember to include those that don't own any animal.
+SELECT 
+    owners.full_name AS owner_name,
+    STRING_AGG(animals.name, ', ') AS animals_owned
+FROM owners
+LEFT JOIN animals ON owners.id = animals.owner_id
+GROUP BY owners.id, owners.full_name;
+
+-- How many animals are there per species?
+SELECT species.name AS species_name, COUNT(animals.id) AS number_of_animals
+FROM species
+LEFT JOIN animals ON species.id = animals.species_id
+GROUP BY species.id, species.name;
+
+-- List all Digimon owned by Jennifer Orwell.
+SELECT owners.full_name AS owner_name, species.name AS species_name, animals.name AS animal_name
+FROM animals
+JOIN species ON animals.species_id = species.id
+JOIN owners ON animals.owner_id = owners.id
+WHERE species.name = 'Digimon' AND owners.full_name = 'Jennifer Orwell';
+
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT owners.full_name AS owner_name, animals.name AS animal_name, animals.escape_attempts AS escape_attempts
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
+
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT 
+    owners.full_name AS owner_name,
+    animals.escape_attempts,
+    animals.name AS animal_name
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Dean Winchester'
+    AND animals.escape_attempts = 0
+UNION
+SELECT 'Dean Winchester' AS owner_name, 0 AS escape_attempts, NULL AS animal_name
+LIMIT 1;
+
+-- Who owns the most animals?
+SELECT owners.full_name AS owner_name, COUNT(animals.id) AS number_of_animals
+FROM owners
+LEFT JOIN animals ON owners.id = animals.owner_id
+GROUP BY owners.id, owners.full_name
+ORDER BY COUNT(animals.id) DESC
+LIMIT 1;
