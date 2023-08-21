@@ -293,3 +293,11 @@ GROUP BY s.name, v.name
 ORDER BY num_visits DESC
 LIMIT 1;
 
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-- Performance audit
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
+
+explain analyze SELECT * FROM visits where vets_id = 2;
+
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
