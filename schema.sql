@@ -106,3 +106,6 @@ REFERENCES animals(animal_id),
 ADD CONSTRAINT fk_vet
 FOREIGN KEY (vet_id)
 REFERENCES vets(vet_id);
+
+-- decrease execution time for third query: SELECT * FROM owners where email = 'owner_18327@mail.com';
+CREATE INDEX email_index ON owners(email);
