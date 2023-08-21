@@ -79,4 +79,5 @@ CREATE TABLE visits (
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
-
+-- decreased the execution time of the first query
+CREATE INDEX animal_id_index ON visits(animal_id);
