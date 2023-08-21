@@ -81,3 +81,28 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 -- decreased the execution time of the first query
 CREATE INDEX animal_id_index ON visits(animal_id);
+
+-- decreased the execution time of the second query
+CREATE TABLE animal_separate (
+    animal_id INT GENERATED ALWAYS AS IDENTITY
+);
+CREATE TABLE vet_seperate (
+    vet_id INT GENERATED ALWAYS AS IDENTITY
+);
+
+
+ALTER TABLE visits
+DROP COLUMN animal_id,
+DROP COLUMN vet_id;
+
+ALTER TABLE visits
+ADD COLUMN animal_id INT,
+ADD COLUMN vet_id INT;
+
+ALTER TABLE visits
+ADD CONSTRAINT fk_animal
+FOREIGN KEY (animal_id)
+REFERENCES animals(animal_id),
+ADD CONSTRAINT fk_vet
+FOREIGN KEY (vet_id)
+REFERENCES vets(vet_id);
