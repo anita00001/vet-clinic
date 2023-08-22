@@ -22,12 +22,17 @@
 
 > **Vet clinic database** is a relational database built using PostgreSQL. In this database information like name, birth date, escape attempts, neutered or not weight of animals are stored.
 
+> **Schema Diagram** [Link to schema diagram](https://dbdiagram.io/d/64e4734102bd1c4a5e2ecc24)
+
 ## 🛠 Built With <a name="built-with"></a>
+
 > - PostgreSQL
+
 ### Tech Stack <a name="tech-stack"></a>
 
 > <details>
 > <summary>Database</summary>
+
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
@@ -43,7 +48,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> *Not available*
+> _Not available_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -53,8 +58,7 @@
 
 > - Use [schema.sql](./schema.sql) to create all tables.
 > - Use [data.sql](./data.sql) to populate tables with sample data.
-> - Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. <br><br>
-> **Important note:** *This file might include queries that make changes in the database (e.g., remove records). Use them responsibly!*
+> - Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. <br><br> > **Important note:** _This file might include queries that make changes in the database (e.g., remove records). Use them responsibly!_
 
 <a name="readme-top"></a>
 
@@ -65,12 +69,15 @@
 ### Setup
 
 Clone this repository to your desired folder:<br>
-  ```sh
-  git clone https://github.com/anita00001/vet-clinic.git
+
+```sh
+git clone https://github.com/anita00001/vet-clinic.git
 ```
+
 ```sh
 cd vet-clinic
 ```
+
 ```sh
 psql
 ```
@@ -80,7 +87,9 @@ postgres=# \c vet_clinic
 ```
 
 ### Install
+
 > Download and Install PostgreSQL<br>
+>
 > - [Download PostgreSQL](https://www.postgresql.org/download/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -90,6 +99,12 @@ postgres=# \c vet_clinic
 > - GitHub: [@anita00001](https://github.com/anita00001)
 > - LinkedIn: [anitaa-sharmaa](https://www.linkedin.com/in/anitaa-sharmaa/)
 > - Twitter: [@anitaa_sharmaa](https://twitter.com/anitaa_sharmaa)
+
+👤 **Author - OMAIDU OTHNIEL**
+
+> - GitHub: (https://github.com/othniel2471)
+> - Twitter: (https://twitter.com/@Oomaidu)
+> - LinkedIn: (https://www.linkedin.com/in/othniel-omaidu-3350a9164)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,7 +119,7 @@ postgres=# \c vet_clinic
 ## 🤝 Contributing <a name="contributing"></a>
 
 > - Contributions, issues, and feature requests are welcome!<br>
-> Feel free to check the [issues page](https://github.com/anita00001/vet-clinic/issues).
+>   Feel free to check the [issues page](https://github.com/anita00001/vet-clinic/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
